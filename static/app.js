@@ -3,7 +3,6 @@
 document.querySelectorAll('[data-auto-submit]').forEach((field) => {
   field.addEventListener('change', () => field.form.requestSubmit());
 });
-
 document.querySelectorAll('form[method="post"]').forEach((form) => {
   form.addEventListener('submit', () => {
     form.querySelectorAll('button[type="submit"], button:not([type])').forEach((button) => {

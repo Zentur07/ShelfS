@@ -1,0 +1,21 @@
+{
+  "result": "passed",
+  "checks": [
+    "live signup",
+    "SMTP confirmation received in Mailpit",
+    "GET does not confirm email",
+    "POST confirms email",
+    "login with CSRF",
+    "reserve",
+    "GET does not cancel",
+    "confirmed cancellation",
+    "reserve again",
+    "staff issue",
+    "SMTP reminder received in Mailpit",
+    "staff return",
+    "reader history",
+    "no mail after return"
+  ],
+  "database": "PostgreSQL",
+  "external_delivery": false
+}

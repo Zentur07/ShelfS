@@ -1,0 +1,15 @@
+{% load static %}<!doctype html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}ShelfS — ваша бібліотека{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'style.css' %}"><script src="{% static 'app.js' %}" defer></script></head>
+<body><header><a class="brand" href="{% url 'catalog' %}">Shelf<span>S</span><small>БІБЛІОТЕКА</small></a>
+<nav aria-label="Головна навігація"><a href="{% url 'catalog' %}">Каталог</a>
+{% if user.is_authenticated %}<a href="{% url 'account' %}">Мій кабінет</a>
+{% if user.is_staff %}<a href="{% url 'staff' %}">Бібліотекарю</a><a href="{% url 'admin:index' %}">Керування</a>{% endif %}
+<form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="link" type="submit">Вийти</button></form>
+{% else %}<a href="{% url 'login' %}">Увійти</a><a class="button small" href="{% url 'signup' %}">Стати читачем</a>{% endif %}
+</nav></header><main>
+{% for message in messages %}<div class="message {{ message.tags }}" role="status">{{ message }}</div>{% endfor %}
+{% block content %}{% endblock %}</main>
+<footer><strong>ShelfS</strong><span>Знайдіть свою наступну історію.</span><a href="{% url 'catalog' %}">До каталогу ↑</a></footer>
+</body></html>

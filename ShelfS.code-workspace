@@ -1,0 +1,9 @@
+{
+  "folders": [{"path": "."}],
+  "settings": {
+    "python.defaultInterpreterPath": "${workspaceFolder}/.runtime/python/python.exe",
+    "python.analysis.extraPaths": ["${workspaceFolder}/.packages"],
+    "files.exclude": {"**/__pycache__": true, ".packages": true, ".runtime": true},
+    "search.exclude": {".packages": true, ".runtime": true, "data": true}
+  }
+}

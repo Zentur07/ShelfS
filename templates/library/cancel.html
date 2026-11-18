@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% block content %}
+<section class="panel"><h1>Скасування бронювання</h1>
+<p>Книга: <strong>{{ reservation.copy.book.title }}</strong></p>
+<p>Примірник: {{ reservation.copy.inventory_number }}. Стан: {{ reservation.effective_status }}.</p>
+{% if reservation.effective_status == 'Активне' %}
+<p>Скасувати це бронювання? Примірник стане доступним іншим читачам.</p>
+<form method="post">{% csrf_token %}<input type="hidden" name="confirmed" value="yes"><button>Так, скасувати бронювання</button> <a href="{% url 'account' %}">Залишити бронювання</a></form>
+{% else %}<p>Бронювання вже неактивне. Його актуальний стан збережено в історії.</p><a href="{% url 'account' %}">До кабінету</a>{% endif %}
+</section>{% endblock %}
